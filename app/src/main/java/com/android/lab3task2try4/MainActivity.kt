@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
 import android.view.MenuItem as MenuItem1
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -21,15 +20,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        drawerLayout = findViewById(R.id.drawer1)
+        drawerLayout = findViewById(R.id.drawer_layout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        toSecond = findViewById(R.id.button1to2)
+        toSecond = findViewById(R.id.bnToSecond)
         toSecond.setOnClickListener(this)
-        toAbout = findViewById(R.id.about_button1)
+        toAbout = findViewById(R.id.about)
         toAbout.setOnClickListener(this)
     }
 

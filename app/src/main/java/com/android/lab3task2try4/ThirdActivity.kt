@@ -14,6 +14,7 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var drawerLayout: DrawerLayout
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    lateinit var toFirst: Button
     lateinit var toSecond: Button
     lateinit var toAbout: Button
 
@@ -21,15 +22,17 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
 
-        drawerLayout = findViewById(R.id.drawer3)
+        drawerLayout = findViewById(R.id.drawer_layout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        toSecond = findViewById(R.id.button3to2)
+        toFirst = findViewById(R.id.bnToFirst)
+        toFirst.setOnClickListener(this)
+        toSecond = findViewById(R.id.bnToSecond)
         toSecond.setOnClickListener(this)
-        toAbout = findViewById(R.id.about_button3)
+        toAbout = findViewById(R.id.about)
         toAbout.setOnClickListener(this)
     }
 
@@ -42,6 +45,9 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
         if (p0 != null)
             when (p0.id) {
                 toSecond.id -> {
+                    finish()
+                }
+                toFirst.id -> {
                     setResult(RESULT_OK)
                     finish()
                 }
